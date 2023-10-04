@@ -1,15 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <example-component></example-component>
-                </div>
-            </div>
-        </div>
+<banner-block image="./assets/house-banner.jpg">
+    <div class="text-center">
+        <h1 class="text-5xl">Tristan Barbeau</h1>
+        <h2 class="text-xl">Courtier Immobilier Résidentiel, Commercial</h2>
+        <p class="text-main">514-444-4444</p>
     </div>
-</div>
+</banner-block>
+<section-block>
+    <template v-slot:description>
+        <!-- content for the header slot -->
+    </template>
+    <template v-slot:picture>
+        <!-- content for the header slot -->
+    </template>
+</section-block>
 @endsection
