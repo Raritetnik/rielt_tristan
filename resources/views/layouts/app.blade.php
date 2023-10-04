@@ -18,14 +18,14 @@
 </head>
 <body>
     <div id="app">
-        <nav class="bg-dark">
+        <nav class="bg-black text-lg px-6">
             <div class="container flex justify-between items-center text-white p-2">
-                <a class="navbar-brand py-2" href="{{ url('/home') }}">
+                <a class="navbar-brand py-2 font-title text-3xl text-main" href="{{ url('/home') }}">
                     <img src="/" alt="{{ config('app.name', 'Tristan') }}">
                 </a>
-                <button type="button" class="text-white">
+                <!--<button type="button" class="text-white">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button>-->
                 <ul class="flex gap-3 text-white">
                     @if (Route::has('home'))
                         <li class="py-2">
@@ -42,13 +42,11 @@
                             <a class="" href="{{ route('contact') }}">{{ __('Contact') }}</a>
                         </li>
                     @endif 
-                    <li class="py-2">
-                        <span class="">(514) 444 - 4545</span>
-                    </li>
                 </ul>
+                <span class="py-2">(514) 444 - 4545</span>
             </div>
         </nav>
-        <main class="max-w-[100%]">
+        <main class="max-w-[100%] bg-dark">
             @yield('content')
         </main>
     </div>

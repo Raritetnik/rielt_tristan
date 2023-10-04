@@ -12,11 +12,5 @@
 <script>
     export default {
         props: ['image'],
-        mounted() {
-            console.log('Component mounted.')
-        },
-        setup(props) {
-            console.log(props.image)
-        }
     }
 </script>

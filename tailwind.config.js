@@ -9,6 +9,9 @@ module.exports = {
     extend: {},
     colors: {
       'main': "#FFDE82",
+    },
+    fontFamily: {
+      title: "Dancing Script, cursive"
     }
   },
   plugins: [],
