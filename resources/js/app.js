@@ -16,10 +16,12 @@ const app = createApp({});
 
 import SectionBlock from './components/sections/SectionBlock.vue';
 import Banner from './components/sections/Banner.vue';
+import BioSection from './components/sections/BioSection.vue';
 import BarSection from './components/sections/BarSection.vue';
 import Contact from './components/sections/Contact.vue';
 import Title from './components/elements/Title.vue';
 import Checkbox from './components/elements/Checkbox.vue';
+import Navigation from './components/elements/Navigation.vue';
 
 
 app.component('section-block', SectionBlock);
@@ -28,6 +30,8 @@ app.component('bar-block', BarSection);
 app.component('contact-form', Contact);
 app.component('title-section', Title);
 app.component('checkbox', Checkbox);
+app.component('biographie', BioSection);
+app.component('navigation', Navigation);
 
 
 

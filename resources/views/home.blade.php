@@ -7,7 +7,7 @@
     <div class="text-center">
         <h1 class="text-6xl">Tristan Barbeau</h1>
         <h2 class="text-xl">Courtier Immobilier Résidentiel, Commercial</h2>
-        <p class="text-main">514-444-4444</p>
+        <p class="text-main text-lg">514-444-4444</p>
     </div>
 </banner-block>
 
@@ -29,7 +29,7 @@
 
 <bar-block image="./assets/devon-mackay-Sk72X-7Y3qU-unsplash.jpg">
     <div class="text-center flex items-center">
-        <img class="w-28 h-28 rounded-full border-1 border-main  object-cover" src="./assets/Tristan_Barbeau-_web.jpg" alt="House with flowers">
+        <img class="w-28 h-28 rounded-full border-2 border-main  object-cover" src="./assets/Tristan_Barbeau-_web.jpg" alt="House with flowers">
         <h1 class="text-7xl">Tristan </br> Barbeau</h1>
     </div>
 </bar-block>

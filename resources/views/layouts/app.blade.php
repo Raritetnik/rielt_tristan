@@ -18,32 +18,28 @@
 </head>
 <body>
     <div id="app">
-        <nav class="bg-black text-lg px-6">
-            <div class="container flex justify-between items-center text-white p-2">
+        <nav class="bg-black text-xl border-b-2 border-main">
+            <div class="container flex justify-between items-center text-white p-2 relative">
                 <a class="navbar-brand py-2 font-title text-3xl text-main" href="{{ url('/home') }}">
                     <img src="/" alt="{{ config('app.name', 'Tristan') }}">
                 </a>
-                <!--<button type="button" class="text-white">
-                    <span class="navbar-toggler-icon"></span>
-                </button>-->
-                <ul class="flex gap-3 text-white">
-                    @if (Route::has('home'))
-                        <li class="py-2">
-                            <a class="" href="{{ route('home') }}">{{ __('Accueil') }}</a>
-                        </li>
-                    @endif
-                    @if (Route::has('about'))
-                        <li class="py-2">
-                            <a class="" href="{{ route('about') }}">{{ __('À propos') }}</a>
-                        </li>
-                    @endif
-                    @if (Route::has('contact'))
-                        <li class="py-2">
-                            <a class="" href="{{ route('contact') }}">{{ __('Contact') }}</a>
-                        </li>
-                    @endif 
-                </ul>
-                <span class="py-2">(514) 444 - 4545</span>
+                <navigation>
+                        @if (Route::has('home'))
+                            <li class="py-2">
+                                <a class="" href="{{ route('home') }}">{{ __('Accueil') }}</a>
+                            </li>
+                        @endif
+                        @if (Route::has('about'))
+                            <li class="py-2">
+                                <a class="" href="{{ route('about') }}">{{ __('À propos') }}</a>
+                            </li>
+                        @endif
+                        @if (Route::has('contact'))
+                            <li class="py-2">
+                                <a class="" href="{{ route('contact') }}">{{ __('Contact') }}</a>
+                            </li>
+                        @endif 
+                </navigation>
             </div>
         </nav>
         <main class="max-w-[100%] bg-dark">
