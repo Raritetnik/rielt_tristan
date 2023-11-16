@@ -1,105 +1,137 @@
 <template>
   <Section
-    :style="{
+      :style="{
       backgroundImage: `url(${bgImage})`,
       backgroundPosition: 'center',
-      backgroundSize: '100%',
+      backgroundSize: 'cover',
     }"
   >
   </Section>
+  <!-- Contact -->
   <Section class="py-[60px]">
     <div class="w-full flex flex-col items-center text-white">
-      <div class="p-8 flex flex-col gap-4">
-        <Titre>Vous voulez plus d'information?</Titre>
-        <form action="" class="formulaire flex flex-col w-full gap-5">
-          <div class="flex gap-6">
-            <span class="flex flex-col">
+      <div class="p-8 flex flex-col gap-4 w-full">
+        <Titre>Contactez-moi</Titre>
+        <figure :class="{ messageSent: !isSent}" class="flex flex-col justify-center text-center">
+          <h2 class="text-xl">Merci de m'avoir contacter !</h2>
+          <p>Je vous rappele dès que possible !</p>
+        </figure>
+        <figure :class="{ messageSent: isSent}" class="formulaire flex flex-col w-full gap-5">
+          <div class="grid gap-6 grid-cols-2">
+            <span class="flex flex-col w-full">
               <label for="prenom"
-                >Prénom: <br />
-                <input id="prenom" name="prenom" type="text"
-              /></label>
+              >Prénom: <br/>
+                <input id="prenom" v-model="prenom" class="w-full text-black" name="prenom" type="text"
+                /></label>
             </span>
-            <span class="flex flex-col">
+            <span class="flex flex-col w-full">
               <label for="nom"
-                >Nom: <br />
-                <input id="nom" name="nom" type="text"
-              /></label>
+              >Nom: <br/>
+                <input id="nom" v-model="nom" class="w-full text-black" name="nom"
+                       type="text"/></label>
             </span>
           </div>
-          <div class="flex gap-6">
-            <span class="flex flex-col">
-              <label for="prenom"
-                >Courriel: <br />
-                <input id="prenom" name="prenom" type="text"
-              /></label>
+          <div class="grid gap-6 grid-cols-2">
+            <span class="flex flex-col w-full">
+              <label for="courriel"
+              >Courriel: <br/>
+                <input id="courriel" v-model="email " class="w-full text-black" name="courriel" type="text"
+                /></label>
             </span>
-            <span class="flex flex-col">
+            <span class="flex flex-col w-full">
               <label for="telephone"
-                >Téléphone: <br />
-                <input id="telephone" name="telephone" type="text"
-              /></label>
+              >Téléphone: <br/>
+                <input id="telephone" v-model="phone" class="w-full text-black" name="telephone" type="text"
+                /></label>
             </span>
           </div>
-          <div class="flex gap-6">
-            <span class="flex flex-row gap-4">
-              <label class="form-control" for="f_matin"
-                ><input id="f_matin" name="matin" type="checkbox" />
-                Matin</label
-              >
-              <label class="form-control" for="f_midi"
-                ><input id="f_midi" name="midi" type="checkbox" /> Après
-                midi</label
-              >
-              <label class="form-control" for="f_soir"
-                ><input id="f_soir" name="soir" type="checkbox" /> Soir</label
-              >
-              <label class="form-control" for="f_finSemaine"
-                ><input id="f_finSemaine" name="finSemaine" type="checkbox" />
-                Fin de semaine</label
-              >
+          <div class="flex gap-6 ">
+            <span class="flex gap-4 flex-col md:flex-row">
+              <label v-for="item in listeDispos" :for="item.id" class="form-control"
+              ><input :id="item.id" v-model="checkedItems" :name="item.id" :value="item.titre" type="checkbox"/>
+                {{ item.titre }}</label>
             </span>
+
+            {{ checkedItems }}
           </div>
           <label for="message"
-            >Message: <br />
+          >Message: <br/>
             <textarea
-              id="message"
-              class="w-full min-h-[120px]"
-              name="message"
+                id="message"
+                v-model="message"
+                class="w-full min-h-[120px] text-black"
+                name="message"
             />
           </label>
-          <Button class="self-start" type="submit">Envoyer message</Button>
-        </form>
+          <Button class="self-start" @click="(e) => {sendMessage(e)}">Envoyer message</Button>
+        </figure>
       </div>
     </div>
-    <div class="w-full p-8 flex flex-col gap-4 justify-center items-center">
-      <Titre>Contactez-moi</Titre>
-      <span class="flex items-center"
-        ><img
-          alt="phone"
-          class="pe-2"
-          src="../../assets/images/phone_icon.png"
-          width="40"
-        />514-142-4254</span
-      >
-      <span class="flex items-center"
-        ><img
-          alt="email"
-          class="pe-2"
-          src="../../assets/images/mail_icon.png"
-          width="40"
-        />tristanbarbeau@gmail.com</span
-      >
-      <img
-        alt=""
-        class="w-[500px] py-6"
-        src="../../assets/images/house-banner.jpg"
+    <div class="w-full p-8 flex justify-center">
+      <LazyNuxtImg
+          alt="Banniere maison image"
+          class="h-[500px] aspect-square object-cover border-[#C4971C] border-2"
+          src="assets/images/house_luxy.webp"
+          width="1356"
       />
     </div>
   </Section>
 </template>
 <script lang="ts" setup>
 import Section from "~/components/elements/Section.vue";
-import bgImage from "assets/images/Maison_de_bord.png";
+import bgImage from "assets/images/Maison_de_bord.webp";
 import Titre from "~/components/elements/Titre.vue";
 import Button from "~/components/elements/Button.vue";
+
+const listeDispos = [{
+  titre: 'Matin',
+  id: 'matinDisp'
+}, {
+  titre: 'Après midi',
+  id: 'midiDisp'
+}, {
+  titre: 'Soir',
+  id: 'soirDisp'
+}, {
+  titre: 'Fin de semaine',
+  id: 'finSemDisp'
+},]
+
+let checkedItems = ref([]);
+let nom = "";
+let prenom = '';
+let email = '';
+let message = "";
+let phone = "";
+let dispos = '';
+
+
+let products = ref(null);
+let isSent = ref(false);
+const sendMessage = (e: any) => {
+  const form = document.querySelector('.formulaire');
+  isSent.value = !isSent.value;
+  dispos = checkedItems.value.toString();
+  fetch("http://localhost:3020/mailContact", {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email: email,
+      message: message,
+      name: prenom + ' ' + nom,
+      phone: phone,
+      dispos: dispos,
+    })
+  }).then(res => res.json())
+      .then(res => console.log(res));
+}
 </script>
+
+<style scoped>
+.messageSent {
+  display: none;
+}
+</style>

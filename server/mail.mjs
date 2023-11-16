@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-export class Mail {
+export default class Mail {
     #transporter = null;
 
     constructor() {
@@ -20,15 +20,39 @@ export class Mail {
         });
     }
 
-    async send(receive, message) {
+    async sendContact(receive, message, name, phone = '', dispos = '') {
         try {
             const info = await this.#transporter.sendMail({
                 from: 'lesurvivaliste@outlook.com',
-                to: 'demese5244@rdluxe.com',
-                subject: 'Message from Node js',
-                text: 'This message was sent from Node js server.',
+                to: 'mkodarenko@gmail.com',
+                subject: 'Message de contact',
+                text: message,
                 html:
-                    `This <i>message</i> was sent from <strong>Node.JS</strong> server.`,
+                    `<p>Nom: ${name}</p>
+                    <p>Courriel: ${receive}</p>
+                    <p>Téléphone: ${phone}</p>
+                    <p>Disponibilités:${dispos}</p>
+                    <h2>Message:</h2>
+                    <p>${message}</p>`,
+            });
+            return info.messageId;
+        } catch (e) {
+            return e;
+        }
+    }
+
+    async sendEvaluation(receive, name, phone = '', adresse = '') {
+        try {
+            const info = await this.#transporter.sendMail({
+                from: 'lesurvivaliste@outlook.com',
+                to: 'mkodarenko@gmail.com',
+                subject: 'Demande d\'évaluation de propriété',
+                text: adresse,
+                html:
+                    `<p>Nom: ${name}</p>
+                    <p>Courriel: ${receive}</p>
+                    <p>Téléphone: ${phone}</p>
+                    <p>Adresse: ${adresse}</p>`,
             });
             return info.messageId;
         } catch (e) {

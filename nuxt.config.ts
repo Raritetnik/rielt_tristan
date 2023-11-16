@@ -10,9 +10,27 @@ export default defineNuxtConfig({
     serverMiddleware: [
         {path: '/api', handler: '~/server.js'},
     ],
+
     server: {
-        port: 3000, // или любой другой порт по вашему выбору
+        port: 3020,
     },
 
-    modules: ["@nuxtjs/tailwindcss"]
+    modules: ["@nuxtjs/tailwindcss", "@nuxt/image", 'nuxt-delay-hydration', "@nuxt-modules/compression", "@averjs/nuxt-compression"],
+
+    nitro: {
+        compressPublicAssets: true,
+    },
+
+    delayHydration: {
+        mode: 'init',
+        // enables nuxt-delay-hydration in dev mode for testing
+        debug: process.env.NODE_ENV === 'development'
+    },
+    app: {
+        head: {
+            htmlAttrs: {
+                lang: 'fr',
+            },
+        }
+    }
 })

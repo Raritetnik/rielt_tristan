@@ -1,48 +1,62 @@
 <template>
   <!-- Banniere -->
   <Section>
-    <div class="grid grid-cols-2 w-full relative">
-      <div class="flex flex-col justify-center items-center w-full">
-        <span class="flex flex-col gap-2">
-          <h1 class="text-3xl">Unreal Properties</h1>
-          <h3 class="text-2xl">Courtier immobilier résidentiel</h3>
-          <Button class="self-end">Contactez-moi</Button>
+    <div class="grid grid-cols-1 lg:grid-cols-2 w-full">
+      <div class="flex flex-col justify-center min-h-[500px] items-center w-full relative">
+        <span class="flex flex-col gap-6 text-center md:text-left">
+          <h1 class="text-4xl">Proprieté incroyable</h1>
+          <h2 class="text-2xl">Courtier immobilier résidentiel</h2>
+          <NuxtLink to="/contact"><Button class="self-end">Contactez-moi</Button></NuxtLink>
         </span>
-      </div>
-      <div class="w-full">
-        <img
-          alt="Banniere maison image"
-          class="h-[700px] w-full object-cover"
-          src="~/assets/images/nataliia-kvitovska-2HKJACExHeo-unsplash.jpg"
+        <NuxtImg
+            alt="Mini image"
+            class="block absolute w-[120px] md:w-[200px] aspect-square bottom-0 left-0 object-cover"
+            format="webp"
+            loading="lazy"
+            src="assets/images/bailey-anselme-Bkp3gLygyeA-unsplash.webp"
+            width="250"
         />
       </div>
-      <img
-        alt="Mini image"
-        class="absolute w-[250px] h-[250px] bottom-0 left-0 object-cover"
-        src="~/assets/images/bailey-anselme-Bkp3gLygyeA-unsplash.jpg"
-      />
+      <div class="w-full">
+        <NuxtImg
+            alt="Banniere maison image"
+            class="h-[500px] lg:h-[800px] w-full object-cover"
+            height="500"
+            placeholder
+            sizes="100vw md:50vw"
+            src="assets/images/nataliia-kvitovska-2HKJACExHeo-unsplash.webp"
+        />
+      </div>
     </div>
   </Section>
 
   <!-- A propos -->
   <Section>
-    <div class="w-full">
-      <img
-        alt="Banniere maison image"
-        class="min-h-[700px] w-full object-cover"
-        src="~/assets/images/5.png"
+    <div class="w-full mt-10 lg:mt-0">
+      <LazyNuxtImg
+          alt="Banniere maison image"
+          class="h-[500px] lg:h-[800px] w-full object-cover"
+          loading="lazy"
+          src="assets/images/5.webp"
+          width="1356"
       />
     </div>
     <div
-      class="w-full flex flex-col justify-center items-center text-white p-20"
+        class="w-full flex flex-col justify-center items-center text-white px-4 py-20 md:p-20 min-h-[500px] "
     >
-      <div class="flex flex-col gap-3 border-s-2 border-[#C4971C] ps-8">
+      <div class="flex flex-col gap-3 border-s-2 border-[#C4971C] ps-8 ">
         <h1 class="text-3xl font-semibold uppercase">À propos de moi</h1>
-        <p class="max-w-[40ch]">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, commodi?
-          Laborum numquam soluta in harum inventore quas consequuntur illum.
-          Quidem aperiam porro nostrum repellendus! Corporis perferendis atque
-          distinctio doloribus qui.
+        <p class="max-w-[60ch]">
+          J’aborde mon travail avec une compréhension solide du marché
+          local et une priorité accordée à l’assistance personnalisée. Que
+          vous soyez un acheteur novice ou un investisseur chevronné, je suis
+          là pour vous guider à chaque étape du processus.
+        </p>
+        <p class="max-w-[60ch]">
+          La base de mon approche repose sur une attention particulière aux
+          exigences et préférences de mes clients. Cela me permet de
+          personnaliser mes offres pour répondre à vos besoins et
+          préférences uniques, garantissant une expérience personnalisée.
         </p>
       </div>
     </div>
@@ -50,24 +64,26 @@
 
   <!-- Profile -->
   <Section
-    :style="{
+      :style="{
       backgroundImage: `url(${bgImage})`,
       backgroundPosition: 'center',
-      backgroundSize: '100%',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
     }"
   >
-    <div class="flex justify-center w-full h-full items-center py-[120px]">
+    <div class="flex flex-col md:flex-row justify-center w-full h-full items-center py-[120px]">
       <div class="flex flex-col items-center text-white">
-        <img
-          alt="Tristan image profile"
-          class="w-52 aspect-square object-cover border-2 border-black rounded-full"
-          src="~/assets/images/Tristan_Barbeau-_web.png"
+        <LazyNuxtImg
+            alt="Tristan image profile"
+            class="w-52 aspect-square object-cover border-2 border-black rounded-full"
+            src="assets/images/Tristan_Barbeau-_web.webp"
+            width="1356"
         />
-        <h2 class="text-[8rem] leading-none m-0">+</h2>
+        <h2 class="text-[8rem] leading-none m-0 hidden md:block">+</h2>
       </div>
       <div class="flex gap-4">
         <h2 class="text-[8rem] decor-text text-white">
-          Tristan <br />
+          Tristan <br/>
           Barbeau
         </h2>
       </div>
@@ -77,62 +93,62 @@
   <!-- Contact -->
   <Section class="py-[60px]">
     <div class="w-full flex flex-col items-center text-white">
-      <div class="p-8 flex flex-col gap-4">
+      <div class="p-8 flex flex-col gap-4 w-full">
         <Titre>Contactez-moi</Titre>
         <form action="" class="formulaire flex flex-col w-full gap-5">
-          <div class="flex gap-6">
-            <span class="flex flex-col">
+          <div class="grid gap-6 grid-cols-2">
+            <span class="flex flex-col w-full">
               <label for="prenom"
-                >Prénom: <br />
-                <input id="prenom" name="prenom" type="text"
-              /></label>
+              >Prénom: <br/>
+                <input id="prenom" class="w-full" name="prenom" type="text"
+                /></label>
             </span>
-            <span class="flex flex-col">
+            <span class="flex flex-col w-full">
               <label for="nom"
-                >Nom: <br />
-                <input id="nom" name="nom" type="text"
-              /></label>
+              >Nom: <br/>
+                <input id="nom" class="w-full" name="nom" type="text"
+                /></label>
             </span>
           </div>
-          <div class="flex gap-6">
-            <span class="flex flex-col">
+          <div class="grid gap-6 grid-cols-2">
+            <span class="flex flex-col w-full">
               <label for="prenom"
-                >Courriel: <br />
-                <input id="prenom" name="prenom" type="text"
-              /></label>
+              >Courriel: <br/>
+                <input id="prenom" class="w-full" name="prenom" type="text"
+                /></label>
             </span>
-            <span class="flex flex-col">
+            <span class="flex flex-col w-full">
               <label for="telephone"
-                >Téléphone: <br />
-                <input id="telephone" name="telephone" type="text"
-              /></label>
+              >Téléphone: <br/>
+                <input id="telephone" class="w-full" name="telephone" type="text"
+                /></label>
             </span>
           </div>
-          <div class="flex gap-6">
-            <span class="flex flex-row gap-4">
+          <div class="flex gap-6 ">
+            <span class="flex gap-4 flex-col md:flex-row">
               <label class="form-control" for="f_matin"
-                ><input id="f_matin" name="matin" type="checkbox" />
+              ><input id="f_matin" name="matin" type="checkbox"/>
                 Matin</label
               >
               <label class="form-control" for="f_midi"
-                ><input id="f_midi" name="midi" type="checkbox" /> Après
+              ><input id="f_midi" name="midi" type="checkbox"/> Après
                 midi</label
               >
               <label class="form-control" for="f_soir"
-                ><input id="f_soir" name="soir" type="checkbox" /> Soir</label
+              ><input id="f_soir" name="soir" type="checkbox"/> Soir</label
               >
               <label class="form-control" for="f_finSemaine"
-                ><input id="f_finSemaine" name="finSemaine" type="checkbox" />
+              ><input id="f_finSemaine" name="finSemaine" type="checkbox"/>
                 Fin de semaine</label
               >
             </span>
           </div>
           <label for="message"
-            >Message: <br />
+          >Message: <br/>
             <textarea
-              id="message"
-              class="w-full min-h-[120px]"
-              name="message"
+                id="message"
+                class="w-full min-h-[120px]"
+                name="message"
             />
           </label>
           <Button class="self-start" type="submit">Envoyer message</Button>
@@ -140,10 +156,11 @@
       </div>
     </div>
     <div class="w-full p-8 flex justify-center">
-      <img
-        alt="Banniere maison image"
-        class="h-[500px] aspect-square object-cover border-[#C4971C] border-2"
-        src="~/assets/images/les-argonautes-89xlwcDKWEw-unsplash.jpg"
+      <LazyNuxtImg
+          alt="Banniere maison image"
+          class="h-[500px] aspect-square object-cover border-[#C4971C] border-2"
+          src="assets/images/house_luxy.webp"
+          width="1356"
       />
     </div>
   </Section>
@@ -152,8 +169,13 @@
 <script setup>
 import Section from "~/components/elements/Section.vue";
 import Button from "~/components/elements/Button.vue";
-import bgImage from "~/assets/images/Maison_de_bord.png";
+import bgImage from "~/assets/images/Maison_de_bord.webp";
 import Titre from "~/components/elements/Titre.vue";
+
+useSeoMeta({
+  title: 'Accueil',
+  description: "Les services professionnels proposés par le courtier immobilier Tristan Barbeau. Touts ce qui est associé aux processus d'achat, de vente et de location de biens immobiliers."
+})
 </script>
 
 <style>

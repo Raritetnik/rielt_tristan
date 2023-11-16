@@ -1,30 +1,39 @@
 <template>
   <footer class="text-white border-t-2 border-primary py-10">
-    <div class="mx-auto grid grid-cols-2 lg:grid-cols-4 max-w-[1920px] py-6 lg:px-8">
-      <div >
-        <h2 class="decor-text text-5xl inline-flex" >
-          <img src="~/assets/images/realtor-96.png" class="w-30 h-30 aspect-auto" alt="Realtor icon" />
-          Tristan<br/>Barbeau</h2>
+    <div class="mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-[1920px] py-6 lg:px-8">
+      <div>
+        <h2 class="decor-text text-5xl inline-flex border-primary border-s-2 px-6">
+          <LazyNuxtImg alt="Realtor icon" class="w-30 h-30 aspect-auto hidden md:block" height="100"
+                       src="assets/images/realtor-96.png"
+                       width="100"/>
+          Tristan<br/>Barbeau
+        </h2>
       </div>
       <div class="border-s-2 border-primary px-6">
-        <h2 class="uppercase pb-4">Contactez-nous</h2>
+        <h2 class="text-2xl pb-3 uppercase">Contact</h2>
         <p>3611 autoroute Laval Ouest</p>
         <p>Laval, H7P 5P6, QC</p>
         <p>(450) 978-2582</p>
       </div>
       <div class="flex flex-col border-s-2 border-primary px-6">
-        <h2 class="uppercase pb-4">Liens</h2>
+        <h2 class="text-2xl pb-3 uppercase">Liens</h2>
         <a href="">Accueil</a>
         <a href="">À propos</a>
         <a href="">Évaluez votre maison</a>
         <a href="">Contact</a>
       </div>
-      <div class="border-s-2 border-primary px-6">
-        <img src="~/assets/images/propio_direct.png" alt="Propio Direct" />
+      <div class="border-s-2 border-primary flex flex-col gap-4 px-6">
+        <LazyNuxtImg alt="Propio Direct" height="120" src="assets/images/duproprio_logo-clr.png" width="100px"/>
         <div class="flex gap-2">
-          <img src="#" alt="facebook" />
-          <img src="#" alt="instagram" />
-          <img src="#" alt="linkedin" />
+          <NuxtLink to="#">
+            <LazyNuxtImg alt="facebook" height="30" src="assets/images/facebook_w.png" width="30"/>
+          </NuxtLink>
+          <NuxtLink to="#">
+            <LazyNuxtImg alt="instagram" height="30" src="assets/images/instagram_w.png" width="30"/>
+          </NuxtLink>
+          <NuxtLink to="#">
+            <LazyNuxtImg alt="linkedin" height="30" src="assets/images/linkedin_w.png" width="30"/>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -34,3 +43,5 @@
     </div>
   </footer>
 </template>
+<script lang="ts" setup>
+</script>

@@ -1,73 +1,77 @@
 <template>
-  <Section class="py-[60px]">
-    <div class="w-full flex flex-col items-center text-white">
+  <Section class="">
+    <div class=" py-8 w-full flex flex-col items-center text-white justify-center">
       <div class="p-8 flex flex-col gap-4">
         <Titre>Vous voulez plus d'information?</Titre>
         <form action="" class="formulaire flex flex-col w-full gap-5">
-          <div class="flex gap-6">
-            <span class="flex flex-col">
-              <label for="prenom"
-              >Prénom: <br/>
-                <input id="prenom" name="prenom" type="text"
-                /></label>
-            </span>
-            <span class="flex flex-col">
-              <label for="nom"
-              >Nom: <br/>
-                <input id="nom" name="nom" type="text"
-                /></label>
-            </span>
-          </div>
-          <div class="flex gap-6">
-            <span class="flex flex-col">
-              <label for="prenom"
-              >Courriel: <br/>
-                <input id="prenom" name="prenom" type="text"
-                /></label>
-            </span>
-            <span class="flex flex-col">
-              <label for="telephone"
-              >Téléphone: <br/>
-                <input id="telephone" name="telephone" type="text"
-                /></label>
-            </span>
-          </div>
-          <div class="flex gap-6">
-            <span class="flex flex-row gap-4">
-              <label class="form-control" for="f_matin"
-              ><input id="f_matin" name="matin" type="checkbox"/>
-                Matin</label
-              >
-              <label class="form-control" for="f_midi"
-              ><input id="f_midi" name="midi" type="checkbox"/> Après
-                midi</label
-              >
-              <label class="form-control" for="f_soir"
-              ><input id="f_soir" name="soir" type="checkbox"/> Soir</label
-              >
-              <label class="form-control" for="f_finSemaine"
-              ><input id="f_finSemaine" name="finSemaine" type="checkbox"/>
-                Fin de semaine</label
-              >
-            </span>
-          </div>
-          <label for="message"
-          >Message: <br/>
-            <textarea
-                id="message"
-                class="w-full min-h-[120px]"
-                name="message"
-            />
-          </label>
+          <span class="flex flex-col ">
+            <label for="telephone"
+            >Adresse de votre propriété:<br/>
+              <input id="telephone" v-model="adresse" class="w-full" name="telephone" type="text"
+              /></label>
+          </span>
+          <span class="flex flex-col ">
+            <label for="nom"
+            >Votre nom complet:<br/>
+              <input id="nom" v-model="nom" class="w-full" name="nom" type="text"
+              /></label>
+          </span>
+          <span class="flex flex-col ">
+            <label for="telephone"
+            >Téléphone:<br/>
+              <input id="telephone" v-model="phone" class="w-full" name="telephone" type="text"
+              /></label>
+          </span>
+          <span class="flex flex-col ">
+            <label for="courriel"
+            >Courriel: <br/>
+              <input id="courriel" v-model="email" class="w-full" name="courriel" type="text"
+              /></label>
+          </span>
           <Button class="self-start" type="submit">Envoyer message</Button>
         </form>
       </div>
     </div>
-    <img alt="" src="~/assets/images/">
+    <NuxtImg alt="Maison avec voiture" class="p-0 m-0 max-h-[700px] object-cover w-full"
+             src="assets/images/jane-palash-KnXDtTbcZ8g-unsplash.webp"
+             width="1356"/>
   </Section>
 </template>
 <script lang="ts" setup>
 import Section from "~/components/elements/Section.vue";
 import Titre from "~/components/elements/Titre.vue";
 import Button from "~/components/elements/Button.vue";
+
+let nom = "";
+let email = '';
+let phone = "";
+let adresse = "";
+
+
+let isSent = ref(false);
+const sendMessage = (e: any) => {
+  const form = document.querySelector('.formulaire');
+  isSent.value = !isSent.value;
+
+  fetch("http://localhost:3020/mailEvaluation", {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email: email,
+      name: nom,
+      phone: phone,
+      adresse: adresse,
+    })
+  }).then(res => res.json())
+      .then(res => console.log(res));
+}
 </script>
+
+<style scoped>
+.messageSent {
+  display: none;
+}
+</style>
