@@ -3,7 +3,11 @@
     <div class=" py-8 w-full flex flex-col items-center text-white justify-center">
       <div class="p-8 flex flex-col gap-4">
         <Titre>Vous voulez plus d'information?</Titre>
-        <form action="" class="formulaire flex flex-col w-full gap-5">
+        <figure :class="{ messageSent: !isSent}" class="flex flex-col justify-center text-center">
+          <h2 class="text-xl">Merci de m'avoir soumettre la demande d'évaluation !</h2>
+          <p>Je vous rappele dès que possible !</p>
+        </figure>
+        <figure :class="{ messageSent: isSent}" class="formulaire flex flex-col w-full gap-5">
           <span class="flex flex-col ">
             <label for="telephone"
             >Adresse de votre propriété:<br/>
@@ -28,8 +32,8 @@
               <input id="courriel" v-model="email" class="w-full" name="courriel" type="text"
               /></label>
           </span>
-          <Button class="self-start" type="submit">Envoyer message</Button>
-        </form>
+          <Button class="self-start" @click="(e) => {sendMessage(e)}">Envoyer message</Button>
+        </figure>
       </div>
     </div>
     <NuxtImg alt="Maison avec voiture" class="p-0 m-0 max-h-[700px] object-cover w-full"
@@ -53,7 +57,7 @@ const sendMessage = (e: any) => {
   const form = document.querySelector('.formulaire');
   isSent.value = !isSent.value;
 
-  fetch("http://localhost:3020/mailEvaluation", {
+  /*fetch("http://localhost:3020/mailEvaluation", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -66,7 +70,7 @@ const sendMessage = (e: any) => {
       adresse: adresse,
     })
   }).then(res => res.json())
-      .then(res => console.log(res));
+      .then(res => console.log(res));*/
 }
 </script>
 

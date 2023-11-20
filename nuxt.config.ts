@@ -7,18 +7,13 @@ export default defineNuxtConfig({
             autoprefixer: {},
         },
     },
-    serverMiddleware: [
-        {path: '/api', handler: '~/server.js'},
-    ],
-
-    server: {
-        port: 3020,
-    },
-
     modules: ["@nuxtjs/tailwindcss", "@nuxt/image", 'nuxt-delay-hydration', "@nuxt-modules/compression", "@averjs/nuxt-compression"],
 
     nitro: {
         compressPublicAssets: true,
+        prerender: {
+            routes: ['/sitemap.xml']
+        }
     },
 
     delayHydration: {
@@ -27,10 +22,11 @@ export default defineNuxtConfig({
         debug: process.env.NODE_ENV === 'development'
     },
     app: {
+        //pageTransition: {name: 'page', mode: 'out-in'},
         head: {
             htmlAttrs: {
                 lang: 'fr',
             },
         }
-    }
+    },
 })

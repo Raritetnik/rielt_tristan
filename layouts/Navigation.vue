@@ -4,12 +4,12 @@ import Menu from "~/layouts/Menu.vue";
 import Button from "~/components/elements/Button.vue";
 </script>
 <template>
-  <header class="w-full py-2 z-[2] px-1 md:px-2 lg:px-4 text-white border-b-2 border-primary">
+  <header class="w-full py-2 z-[2] px-1 md:px-2 lg:px-6 text-white border-b-2 border-primary">
     <div class="mx-auto flex justify-between max-w-[1920px] items-center py-2 relative">
-      <h2 class="decor-text text-3xl lg:text-5xl inline-flex">
-        <NuxtImg alt="R.I" class="w-16 lg:w-24 aspect-square" sizes="60px md:100px" src="./assets/images/realtor-96.png"
-                 width="60"/>
-        Tristan <br> Barbeau
+      <h2 class="decor-text text-2xl lg:text-4xl inline-flex items-center">
+        <!--<NuxtImg alt="R.I" class="h-[70px] w-[70px] aspect-square" height="40" sizes="50px md:70px"
+                 src="./assets/images/realtor-96.png" width="30"/>-->
+        Tristan Barbeau
       </h2>
       <button class="lg:hidden bg-transparent px-4" @click="(e) => {closeMenu(e)}">
         <svg class="menuBtn" fill="currentColor" height="25" viewBox="0 0 100 80" width="25">

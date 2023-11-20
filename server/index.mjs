@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import Mail from './mail.mjs'
 
 const app = express();
 const port = 3020; // Вы можете изменить порт по вашему выбору

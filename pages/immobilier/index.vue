@@ -12,7 +12,7 @@
 </template>
 <script lang="ts" setup>
 import Section from "~/components/elements/Section.vue";
-import CardHouse from "~/components/elements/CardHouse.vue";
 import dataHouses from "~/assets/data/house.json";
 import Titre from "~/components/elements/Titre.vue";
+import CardHouse from "~/components/elements/CardHouse.vue";
 </script>
