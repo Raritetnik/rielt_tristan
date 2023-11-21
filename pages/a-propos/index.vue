@@ -3,15 +3,15 @@
       :style="{
       backgroundImage: `url(${bgImage})`,
       backgroundPosition: 'center',
-      backgroundSize: '100%',
+      backgroundSize: '100% 100%',
     }"
-      class="flex justify-center"
+      class="flex justify-center bg-no-repeat bg-cover"
   >
     <div class="max-w-[80ch] text-black text-center flex flex-col my-20">
       <NuxtImg
           alt="Profile Img"
           class="self-center border-2 border-primary rounded-full translate-y-20"
-          src="../../assets/images/tristan_profil.webp"
+          src="assets/images/tristan_profil.webp"
           width="250"
       />
       <div class="bg-white px-14 pt-32 pb-24">
@@ -35,65 +35,7 @@
   <Section class="py-[60px]">
     <div class="w-full flex flex-col items-center text-white">
       <div class="p-8 flex flex-col gap-4 w-full">
-        <Titre>Contactez-moi</Titre>
-        <form action="" class="formulaire flex flex-col w-full gap-5">
-          <div class="grid gap-6 grid-cols-2">
-            <span class="flex flex-col w-full">
-              <label for="prenom"
-              >Prénom: <br/>
-                <input id="prenom" class="w-full" name="prenom" type="text"
-                /></label>
-            </span>
-            <span class="flex flex-col w-full">
-              <label for="nom"
-              >Nom: <br/>
-                <input id="nom" class="w-full" name="nom" type="text"
-                /></label>
-            </span>
-          </div>
-          <div class="grid gap-6 grid-cols-2">
-            <span class="flex flex-col w-full">
-              <label for="prenom"
-              >Courriel: <br/>
-                <input id="prenom" class="w-full" name="prenom" type="text"
-                /></label>
-            </span>
-            <span class="flex flex-col w-full">
-              <label for="telephone"
-              >Téléphone: <br/>
-                <input id="telephone" class="w-full" name="telephone" type="text"
-                /></label>
-            </span>
-          </div>
-          <div class="flex gap-6 ">
-            <span class="flex gap-4 flex-col md:flex-row">
-              <label class="form-control" for="f_matin"
-              ><input id="f_matin" name="matin" type="checkbox"/>
-                Matin</label
-              >
-              <label class="form-control" for="f_midi"
-              ><input id="f_midi" name="midi" type="checkbox"/> Après
-                midi</label
-              >
-              <label class="form-control" for="f_soir"
-              ><input id="f_soir" name="soir" type="checkbox"/> Soir</label
-              >
-              <label class="form-control" for="f_finSemaine"
-              ><input id="f_finSemaine" name="finSemaine" type="checkbox"/>
-                Fin de semaine</label
-              >
-            </span>
-          </div>
-          <label for="message"
-          >Message: <br/>
-            <textarea
-                id="message"
-                class="w-full min-h-[120px]"
-                name="message"
-            />
-          </label>
-          <Button class="self-start" type="submit">Envoyer message</Button>
-        </form>
+        <ContactForm></ContactForm>
       </div>
     </div>
     <div class="w-full p-8 flex justify-center">
@@ -110,6 +52,5 @@
 <script setup>
 import Section from "~/components/elements/Section.vue";
 import bgImage from "assets/images/dillon-kydd-XGvwt544g8k-unsplash.webp";
-import Titre from "~/components/elements/Titre.vue";
-import Button from "~/components/elements/Button.vue";
+import ContactForm from "~/components/elements/ContactForm.vue";
 </script>

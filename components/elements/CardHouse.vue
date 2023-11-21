@@ -1,8 +1,8 @@
 <template>
   <article :key="one.house['code']"
            class="cardHouse bg-white flex flex-col justify-between border-primary border-[1px]">
-    <img :src="one.house['imageURL']" alt="Image maison" class="bg-white h-[200px] object-cover" height={200}/
-         loading="lazy">
+    <LazyNuxtImg :src="one.house['imageURL']" alt="Image maison" class="bg-white h-[200px] object-cover" height="200"
+                 loading="lazy"/>
     <div class="border-t-2 border-primary p-6 pb-0 h-full flex flex-col gap-2">
       <h2 class="text-3xl text-primary">{{ one.house['Active price'] }}</h2>
       <h3>{{ one.house['Address'] }}</h3>
@@ -22,12 +22,7 @@ export default {
       type: Object,
       default: {}
     },
-    methods: {
-      toObject(obj) {
-        console.log(obj)
-        return
-      }
-    }
+    methods: {}
   },
 }
 </script>

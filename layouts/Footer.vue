@@ -23,21 +23,21 @@
         <a href="">Contact</a>
       </div>
       <div class="border-s-2 border-primary flex flex-col gap-4 px-6">
-        <LazyNuxtImg alt="Propio Direct" height="120" src="assets/images/duproprio_logo-clr.png" width="100px"/>
+        <NuxtImg alt="Propio Direct" height="120" src="assets/images/duproprio_logo-clr.png" width="100px"/>
         <div class="flex gap-2">
           <NuxtLink to="#">
-            <LazyNuxtImg alt="facebook" height="30" src="assets/images/facebook_w.png" width="30"/>
+            <NuxtImg alt="FB" height="30" src="assets/images/facebook_w.png" width="30"/>
           </NuxtLink>
           <NuxtLink to="#">
-            <LazyNuxtImg alt="instagram" height="30" src="assets/images/instagram_w.png" width="30"/>
+            <NuxtImg alt="Instag" height="30" src="assets/images/instagram_w.png" width="30"/>
           </NuxtLink>
           <NuxtLink to="#">
-            <LazyNuxtImg alt="linkedin" height="30" src="assets/images/linkedin_w.png" width="30"/>
+            <NuxtImg alt="LinkIn" height="30" src="assets/images/linkedin_w.png" width="30"/>
           </NuxtLink>
         </div>
       </div>
     </div>
-    <div class="mx-auto max-w-[1920px] flex justify-between border-t-2 border-primary pt-6 lg:px-8">
+    <div class="mx-auto max-w-[1920px] flex justify-between border-t-2 border-primary pt-6 px-4 lg:px-8">
       <h3>Tristan Barbeau</h3>
       <h3>©2023 All rights reserved</h3>
     </div>

@@ -1,3 +1,8 @@
+<script lang="ts" setup>
+defineProps(['sectionStyle']);
+defineEmits(['update:sectionStyle']);
+</script>
+
 <template>
   <section class="text-white bg-black">
     <div

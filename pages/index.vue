@@ -10,7 +10,7 @@
         </span>
         <NuxtImg
             alt="Mini image"
-            class="block absolute w-[120px] md:w-[200px] aspect-square bottom-0 left-0 object-cover"
+            class="block absolute w-[120px] md:w-[200px] aspect-square bottom-0 left-0 object-cover bg-primary"
             format="webp"
             loading="lazy"
             src="assets/images/bailey-anselme-Bkp3gLygyeA-unsplash.webp"
@@ -94,65 +94,7 @@
   <Section class="py-[60px]">
     <div class="w-full flex flex-col items-center text-white">
       <div class="p-8 flex flex-col gap-4 w-full">
-        <Titre>Contactez-moi</Titre>
-        <form action="" class="formulaire flex flex-col w-full gap-5">
-          <div class="grid gap-6 grid-cols-2">
-            <span class="flex flex-col w-full">
-              <label for="prenom"
-              >Prénom: <br/>
-                <input id="prenom" class="w-full" name="prenom" type="text"
-                /></label>
-            </span>
-            <span class="flex flex-col w-full">
-              <label for="nom"
-              >Nom: <br/>
-                <input id="nom" class="w-full" name="nom" type="text"
-                /></label>
-            </span>
-          </div>
-          <div class="grid gap-6 grid-cols-2">
-            <span class="flex flex-col w-full">
-              <label for="prenom"
-              >Courriel: <br/>
-                <input id="prenom" class="w-full" name="prenom" type="text"
-                /></label>
-            </span>
-            <span class="flex flex-col w-full">
-              <label for="telephone"
-              >Téléphone: <br/>
-                <input id="telephone" class="w-full" name="telephone" type="text"
-                /></label>
-            </span>
-          </div>
-          <div class="flex gap-6 ">
-            <span class="flex gap-4 flex-col md:flex-row">
-              <label class="form-control" for="f_matin"
-              ><input id="f_matin" name="matin" type="checkbox"/>
-                Matin</label
-              >
-              <label class="form-control" for="f_midi"
-              ><input id="f_midi" name="midi" type="checkbox"/> Après
-                midi</label
-              >
-              <label class="form-control" for="f_soir"
-              ><input id="f_soir" name="soir" type="checkbox"/> Soir</label
-              >
-              <label class="form-control" for="f_finSemaine"
-              ><input id="f_finSemaine" name="finSemaine" type="checkbox"/>
-                Fin de semaine</label
-              >
-            </span>
-          </div>
-          <label for="message"
-          >Message: <br/>
-            <textarea
-                id="message"
-                class="w-full min-h-[120px]"
-                name="message"
-            />
-          </label>
-          <Button class="self-start" type="submit">Envoyer message</Button>
-        </form>
+        <ContactForm></ContactForm>
       </div>
     </div>
     <div class="w-full p-8 flex justify-center">
@@ -170,7 +112,7 @@
 import Section from "~/components/elements/Section.vue";
 import Button from "~/components/elements/Button.vue";
 import bgImage from "~/assets/images/Maison_de_bord.webp";
-import Titre from "~/components/elements/Titre.vue";
+import ContactForm from "~/components/elements/ContactForm.vue";
 
 useSeoMeta({
   title: 'Accueil',

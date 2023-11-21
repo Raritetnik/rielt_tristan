@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-defineProps(["isClosed"]);
-defineEmits(['update:isClosed']);
+defineProps(["isClosed", "closeMenu"]);
+defineEmits(['update:isClosed', 'update:closeMenu']);
 
 const menuList = [
   {option: "Accueil", lien: '/'},
@@ -17,9 +17,8 @@ const menuList = [
        class="menu z-[2] flex flex-col justify-center lg:absolute lg:-translate-y-1/2 lg:left-1/2 lg:-translate-x-1/2">
     <ul class="flex flex-col lg:flex-row lg:justify-between text-black text-center items-center">
       <li v-for="option in menuList" class="link">
-        <NuxtLink :to="option.lien" class="lg:h-[60px] px-.5 lg:flex lg:items-center lg:justify-center">{{
-            option.option
-          }}
+        <NuxtLink :to="option.lien" class="lg:h-[60px] px-.5 lg:flex lg:items-center lg:justify-center"
+                  @click="closeMenu()">{{ option.option }}
         </NuxtLink>
       </li>
     </ul>
@@ -93,7 +92,7 @@ const menuList = [
 
 @media (max-width: 1024px) {
   .menu {
-    transition: .3s ease-in-out;
+    transition: .2s ease-in-out;
   }
 
   .closeMenu {

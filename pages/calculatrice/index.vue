@@ -1,10 +1,11 @@
 <template>
   <Section class="py-[60px]">
-    <figure class=" lg:max-w-[500px] m-16">
-      <div class="text-white flex flex-col">
-        <Titre>Versement régulier</Titre>
-        <span class="flex flex-col w-full"
-        ><label for="pretHypot">Montant du prêt hypothécaire:</label>
+    <div class="border-primary border-2 flex flex-col lg:flex-row">
+      <figure class=" lg:max-w-[500px] m-16">
+        <div class="text-white flex flex-col">
+          <Titre>Versement régulier</Titre>
+          <span class="flex flex-col w-full"
+          ><label for="pretHypot">Montant du prêt hypothécaire:</label>
           <input
               id="pretHypot"
               v-model="pretHypothec"
@@ -14,7 +15,7 @@
               name="pretHypot"
               type="number"
           /></span>
-        <div class="grid grid-cols-2 gap-6">
+          <div class="grid grid-cols-2 gap-6">
         <span class="flex flex-col w-full"
         ><label for="tauxInteret">Taux d'intéret</label>
             <input
@@ -26,8 +27,8 @@
                 step="{0.01}"
                 type="number"
             /></span>
-          <span class="flex flex-col w-full"
-          ><label for="amortissement">Période d'amortissement:</label>
+            <span class="flex flex-col w-full"
+            ><label for="amortissement">Période d'amortissement:</label>
               <span class="grid grid-cols-2 w-full gap-2">
                 <select
                     id="ammortisAnnees"
@@ -55,9 +56,9 @@
                 </select>
               </span>
             </span>
+          </div>
         </div>
-      </div>
-      <div class="flex gap-2 items-end">
+        <div class="flex gap-2 items-end">
             <span class="flex flex-col w-full"
             ><label for="freqVersement">Fréquence des versements:</label>
               <select
@@ -76,54 +77,55 @@
                 <option class="text-black" value="semaine">Par semaine</option>
               </select>
             </span>
-      </div>
-      <Button :onclick="
+        </div>
+        <Button :onclick="
           (e) => {
             submit(e);
           }
         "
-              class="self-center mb-8 mt-4"
-              type="button"
-      >Calculer
-      </Button>
-    </figure>
-    <div class="m-16">
-      <Titre>Aperçu des calculs</Titre>
-      <table class="calcApercu w-full">
-        <thead>
-        <tr class="w-full">
-          <th class="w-1/3 bg-primary font-bold text-left">Catégorie</th>
+                class="self-center mb-8 mt-4"
+                type="button"
+        >Calculer
+        </Button>
+      </figure>
+      <div class="m-16">
+        <Titre>Aperçu des calculs</Titre>
+        <table class="calcApercu w-full">
+          <thead>
+          <tr class="w-full">
+            <th class="w-1/3 bg-primary font-bold text-left">Catégorie</th>
 
-          <td class="w-1/3 bg-primary font-bold">Période d’amortissement</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="">
-          <td>Nombre de versements</td>
-          <td>{{ duree }}</td>
-        </tr>
-        <tr class="">
-          <td>Versement hypothécaire</td>
-          <td>{{ CADollar.format(versementMensuel) }}</td>
-        </tr>
-        <tr class="">
-          <td>Remboursement anticipé</td>
-          <td>--</td>
-        </tr>
-        <tr class="">
-          <td>Paiement de capital</td>
-          <td>{{ CADollar.format(paiementCapital) }}</td>
-        </tr>
-        <tr class="">
-          <td>Paiement de frais d’intérêt</td>
-          <td>{{ CADollar.format(paiementFraisInteret) }}</td>
-        </tr>
-        <tr class="">
-          <td>Coût total</td>
-          <td>{{ CADollar.format(prixTotale) }}</td>
-        </tr>
-        </tbody>
-      </table>
+            <td class="w-1/3 bg-primary font-bold">Période d’amortissement</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="">
+            <td>Nombre de versements</td>
+            <td>{{ duree }}</td>
+          </tr>
+          <tr class="">
+            <td>Versement hypothécaire</td>
+            <td>{{ CADollar.format(versementMensuel) }}</td>
+          </tr>
+          <tr class="">
+            <td>Remboursement anticipé</td>
+            <td>--</td>
+          </tr>
+          <tr class="">
+            <td>Paiement de capital</td>
+            <td>{{ CADollar.format(paiementCapital) }}</td>
+          </tr>
+          <tr class="">
+            <td>Paiement de frais d’intérêt</td>
+            <td>{{ CADollar.format(paiementFraisInteret) }}</td>
+          </tr>
+          <tr class="">
+            <td>Coût total</td>
+            <td>{{ CADollar.format(prixTotale) }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </Section>
 </template>
