@@ -1,5 +1,6 @@
 'use client' // 👈 use it here
 
+import CardHouse from "@/app/components/CardHouse";
 import Section from "@/app/components/Section";
 import { dataHouses } from "@/db/houses";
 
@@ -8,22 +9,17 @@ export default function Immobilier() {
 
     return(
         <Section bgStyle={{ color: "white" }} sectStyle={{ flexDirection: 'column', padding: '60px 0px' }}>
-            <h2 className="self-start text-3xl font-semibold">My listing</h2>
-            <div className="grid grid-cols-4 gap-4 max-w-[1500px]">
-                {dataHouses.slice(0,4).map(maison => {
+            <div className="flex justify-between w-full px-8">
+                <h2 className="self-start text-3xl font-semibold border-s-2 border-primary ps-8">My listing</h2>
+                <button className="btn-primal self-end bg-primary">Afficher plus</button>
+            </div>
+            <div className="grid grid-cols-4 gap-4 px-20 max-h-none">
+                {dataHouses.map(maison => {
                     return(
-                        <article key={maison.code} className="bg-white text-black">
-                            <img src="" width={300} height={200} className="bg-white" alt="Image maison" />
-                            <div className="border-t-2 border-primary p-6">
-                                <h2>{maison["Active price"]}</h2>
-                                <h3>{maison.Address}</h3>
-                            </div>
-                            <button className="btn-primal bg-primary">Voir plus</button>
-                        </article>
+                        <CardHouse house={maison} ></CardHouse>
                     )
                 })}
             </div>
-            <button className="btn-primal self-end bg-primary">Contactez-moi</button>
         </Section>
     )
 }

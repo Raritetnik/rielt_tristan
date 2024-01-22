@@ -4,7 +4,7 @@ export default function Section(props: any) {
 
     return (
       <section style={bgStyle}>
-        <div className="min-h-[500px] mx-auto max-w-[1600px] flex justify-center items-center gap-2 lg:gap-10" style={sectStyle}>{props.children}</div>
+        <div className="min-h-[500px] mx-auto max-w-[1920px] flex justify-center items-center gap-2 lg:gap-10 text-white" style={sectStyle}>{props.children}</div>
       </section>
     )
 }

@@ -2,29 +2,7 @@
 
 import Section from "./components/Section";
 
-import React,{ useState, useEffect } from "react";
 export default function Home() {
-  const [data, setData] = useState([]);
-  /*const getData = async ()=>{
-    fetch('./assets/house.json',{
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }
-    })
-      .then(function(response){
-        console.log(response)
-        return response.json();
-
-      })
-      .then(function(myJson) {
-        console.log(myJson);
-        setData(myJson['listHouses'].slice(0,4));
-      });
-    }
-    useEffect(()=>{
-      getData()
-    },[]);*/
 
   return (
     <main className="max-w-[100%]">
@@ -59,11 +37,11 @@ export default function Home() {
         {/* Profil Section */}
         <Section bgStyle={{ }} sectStyle={{ background: "url('./assets/Maison_de_bord.png')", backgroundSize: '100%', backgroundPosition: 'center', flexDirection: 'row', position: 'relative', gap: '5rem' }}>
           <div className="flex flex-col items-center text-white my-[180px]">
-            <img src="./assets/Tristan_Barbeau-_web.png" className="w-40 aspect-square object-cover border-2 border-black rounded-full" alt="Tristan image profile" />
-            <h2 className="text-[6rem] leading-none pt- m-0" >+</h2>
+            <img src="./assets/Tristan_Barbeau-_web.png" className="w-52 aspect-square object-cover border-2 border-black rounded-full" alt="Tristan image profile" />
+            <h2 className="text-[8rem] leading-none m-0" >+</h2>
           </div>
           <div className="flex gap-4">
-            <h2 className="text-9xl decor-text text-white">
+            <h2 className="text-[8rem] decor-text text-white">
               Tristan 
               <br/> Barbeau</h2>
           </div>

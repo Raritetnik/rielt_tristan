@@ -3,16 +3,17 @@ export default function CardHouse(props: any) {
     let CADollar = new Intl.NumberFormat('fr-CA', {
       style: 'currency',
       currency: 'CAD',
-  });
+    });
+
     return (
-      <article key={props.house.code} className="block border-2 m-2 rounded-xl">
-        <img className="rounded-t-xl" src={props.house["imageURL"]} alt="House Image" />
-        <div className="p-4">
-          <h2 className="text-2xl pb-2" style={{color: 'goldenrod'}}>{props.house["Type"]}</h2>
-          <span className="text-lg font-bold">{CADollar.format(props.house['Active price'])}</span>
-          <p className="pt-2">{props.house['Description'].substring(0,120)}...</p>
-          <button className="primary-button">Voir plus</button>
+      <article key={props.house.code} className="text-black bg-white flex flex-col justify-between border-primary border-[1px]">
+        <img src={props.house.imageURL} height={200} className="bg-white h-[200px] object-cover" alt="Image maison" />
+        <div className="border-t-2 border-primary p-6 h-full flex flex-col gap-2">
+            <h2 className="text-3xl text-primary">{CADollar.format(props.house['Active price'])}</h2> 
+            <h3>{props.house.Address}</h3>
+            <h3>MLS® Number: {props.house.code}</h3>
         </div>
+        <button className="btn-primal bg-primary self-start mb-6 ms-6">Voir plus</button>
       </article>
     )
 }

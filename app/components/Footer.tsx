@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
       <footer className="text-white border-t-2 border-primary py-10">
-        <div className="mx-auto grid grid-cols-2 lg:grid-cols-4 max-w-[1600px] py-6">
+        <div className="mx-auto grid grid-cols-2 lg:grid-cols-4 max-w-[1920px] py-6 lg:px-8">
           <div >
             <h2 className="decor-text text-5xl inline-flex" >
               <img src="./assets/realtor-96.png" className="w-30 h-30 aspect-auto" alt="Realtor icon" />
@@ -29,8 +29,8 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mx-auto max-w-[1600px] flex justify-between border-t-2 border-primary pt-6">
-          <h3>Tristan Barbea</h3>
+        <div className="mx-auto max-w-[1920px] flex justify-between border-t-2 border-primary pt-6 lg:px-8">
+          <h3>Tristan Barbeau</h3>
           <h3>©2023 All rights reserved</h3>
         </div>
       </footer>
